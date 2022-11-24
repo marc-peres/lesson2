@@ -40,20 +40,27 @@
 
 // является ли день выходным
 
-// bool isParsed = int.TryParse(Console.ReadLine(), out int usrDay);
-// string[] daysOfWeek = { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье" };
-// if (isParsed)
-// {
-//     if (usrDay > 0 & usrDay < 8)
-//     {
-//         Console.WriteLine(daysOfWeek[usrDay - 1]);
-//     }
-//     else
-//     {
-//         Console.WriteLine("В неделе всего 7 дней");
-//     }
-// }
-// else
-// {
-//     Console.WriteLine("Введите число");
-// }
+bool isParsed = int.TryParse(Console.ReadLine(), out int usrDay);
+string[] daysOfWeek = { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье" };
+if (isParsed)
+{
+    if (usrDay > 0 & usrDay < 8)
+    {
+        if (usrDay == 6 | usrDay == 7)
+        {
+            Console.WriteLine($"{daysOfWeek[usrDay - 1]} - ура, выходной");
+        }
+        else
+        {
+            Console.WriteLine($"{daysOfWeek[usrDay - 1]} - рабочий день");
+        }
+    }
+    else
+    {
+        Console.WriteLine("В неделе всего 7 дней");
+    }
+}
+else
+{
+    Console.WriteLine("Введите число");
+}
