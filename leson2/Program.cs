@@ -1,112 +1,82 @@
 ﻿// See https://aka.ms/new-console-template for more information
 // See https://aka.ms/new-console-template for more information
-
-// Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом. Задание должно быть выполнено в методе. В методе не должно быть вывода в консоль. Не использовать String!
-// 14212 -> нет
-// 12821 -> да
-// 23432 -> да
-
-// bool isInt = int.TryParse(Console.ReadLine(), out int val);
-
-// if (isInt & val >= 10000 & val < 100000)
+//  Напишите программу, которая принимает на вход два числа (A и B) и метод который возводит число A в натуральную степень B. Задание должно быть выполнено в методе. В методе не должно быть вывода в консоль. Не использовать Math.Pow()
+// bool isParsedVal = int.TryParse(Console.ReadLine(), out int val);
+// bool isParsedDeg = int.TryParse(Console.ReadLine(), out int deg);
+// if (!isParsedVal || !isParsedDeg)
 // {
-
+//     Console.WriteLine("Не число!");
+//     return;
 // }
-// int[] result = DoArrByNum(val);
+// int res = ValInDegree(val, deg);
+// Console.WriteLine(res);
 
-// bool isNumPalendromResult = IsPalindrom(result);
-// if (isNumPalendromResult)
+// int ValInDegree(int val, int deg)
 // {
-//     Console.WriteLine($"Число {val} - палиндром");
-// }
-// else
-// {
-//     Console.WriteLine($"Число {val} - НЕ палиндром");
-// }
-// int[] DoArrByNum(int num)
-// {
-//     int[] arr = new int[5];
-//     int result;
-//     int newNum = num;
-//     int i = 0;
-//     while (i < 5)
+//     int i = 2;
+//     int result = val;
+//     if (deg == 0)
 //     {
-//         result = newNum % 10;
-//         arr[4 - i] = result;
-//         newNum = newNum / 10;
-//         i++;
+//         return 1;
 //     }
-//     return arr;
-// }
-// bool IsPalindrom(int[] arr)
-// {
-//     bool result = true;
-//     for (int i = 0; i < arr.Length; i++)
+//     while (i <= deg)
 //     {
-//         if (arr[i] != arr[arr.Length - 1 - i])
-//         {
-//             result = false;
-//             break;
-//         }
+//         result = result * val;
+//         i++;
 //     }
 //     return result;
 // }
 
-// Задача 21
-// Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве. Задание должно быть выполнено в методе. В методе не должно быть вывода в консоль.
-// A (3,6,8); B (2,1,-7), -> 15.84
-// A (7,-5, 0); B (1,-1,9) -> 11.53
+// Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+// 452 -> 11
+// 82 -> 10
+// 9012 -> 12
 
-// bool isParsedAx = int.TryParse(Console.ReadLine(), out int ax);
-// bool isParsedAy = int.TryParse(Console.ReadLine(), out int ay);
-// bool isParsedAz = int.TryParse(Console.ReadLine(), out int az);
-// bool isParsedBx = int.TryParse(Console.ReadLine(), out int bx);
-// bool isParsedBy = int.TryParse(Console.ReadLine(), out int by);
-// bool isParsedBz = int.TryParse(Console.ReadLine(), out int bz);
-
-// if (!isParsedAx || !isParsedAy || !isParsedAz || !isParsedBx || !isParsedBy || !isParsedBz)
-// {
-//     Console.WriteLine("Введите корректные значения");
-// }
-// double result = FindeDistance(ax, ay, az, bx, by, bz);
-// Console.WriteLine($"Растояние = {result}");
-// double FindeDistance(int ax, int ay, int az, int bx, int by, int bz)
-// {
-//     return Math.Round(Math.Sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay) + (bz - az) * (bz - az)), 2);
-// }
-
-
-// Задача 23
-// Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N. Задание должно быть выполнено в методе и метод должен вернуть массив чисел.
-// 3 -> 1, 8, 27
-// 5 -> 1, 8, 27, 64, 125
-
-
-// bool isParsedVal = int.TryParse(Console.ReadLine(), out int Val);
-
+// bool isParsedVal = int.TryParse(Console.ReadLine(), out int val);
 // if (!isParsedVal)
 // {
-//     Console.WriteLine("Введите корректные значения");
+//     Console.WriteLine("Не число!");
+//     return;
+// }
+// int res = GetSum(val);
+// Console.WriteLine(res);
+// int GetSum(int val)
+// {
+//     int newVal = val;
+//     int result = 0;
+//     while (newVal > 0)
+//     {
+//         result += newVal % 10;
+//         newVal = newVal / 10;
+//     }
+//     return result;
 // }
 
-// int[] result = GetSquareArr(Val);
-// ShowResultByArr(result);
-// int[] GetSquareArr(int val)
-// {
-//     int i = 1;
-//     int[] resultArr = new int[val];
-//     while (i <= val)
-//     {
-//         resultArr[i - 1] = (int)Math.Pow(i, 3);
-//         i += 1;
-//     }
-//     return resultArr;
-// }
+// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+// 6, 1, 33 -> [6, 1, 33]
 
-// void ShowResultByArr(int[] arr)
+// bool isParsedLength = int.TryParse(Console.ReadLine(), out int lengthOfArr);
+// bool isParsedMin = int.TryParse(Console.ReadLine(), out int min);
+// bool isParsedMax = int.TryParse(Console.ReadLine(), out int max);
+// if (!isParsedLength || !isParsedMin || !isParsedMax)
 // {
-//     for (int i = 0; i < arr.Length; i++)
+//     Console.WriteLine("Не число!");
+//     return;
+// }
+// Random random = new Random();
+// int[] res = BuildRandomArr(lengthOfArr, min, max);
+
+// Console.WriteLine(String.Join(", ", res));
+
+// int[] BuildRandomArr(int length, int min, int max)
+// {
+//     int[] result = new int[length];
+//     int i = 0;
+//     while (i < length)
 //     {
-//         Console.WriteLine(arr[i]);
+//         result[i] = random.Next(min, max + 1);
+//         i++;
 //     }
+//     return result;
 // }
