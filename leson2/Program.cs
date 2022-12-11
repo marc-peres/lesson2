@@ -1,82 +1,241 @@
 ﻿// See https://aka.ms/new-console-template for more information
 // See https://aka.ms/new-console-template for more information
-//  Напишите программу, которая принимает на вход два числа (A и B) и метод который возводит число A в натуральную степень B. Задание должно быть выполнено в методе. В методе не должно быть вывода в консоль. Не использовать Math.Pow()
-// bool isParsedVal = int.TryParse(Console.ReadLine(), out int val);
-// bool isParsedDeg = int.TryParse(Console.ReadLine(), out int deg);
-// if (!isParsedVal || !isParsedDeg)
-// {
-//     Console.WriteLine("Не число!");
-//     return;
-// }
-// int res = ValInDegree(val, deg);
-// Console.WriteLine(res);
 
-// int ValInDegree(int val, int deg)
-// {
-//     int i = 2;
-//     int result = val;
-//     if (deg == 0)
-//     {
-//         return 1;
-//     }
-//     while (i <= deg)
-//     {
-//         result = result * val;
-//         i++;
-//     }
-//     return result;
-// }
+// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+// [345, 897, 568, 234] -> 2
 
-// Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-// 452 -> 11
-// 82 -> 10
-// 9012 -> 12
+// bool isParsedVal = int.TryParse(Console.ReadLine(), out int arrLength);
 
-// bool isParsedVal = int.TryParse(Console.ReadLine(), out int val);
 // if (!isParsedVal)
 // {
 //     Console.WriteLine("Не число!");
 //     return;
 // }
-// int res = GetSum(val);
-// Console.WriteLine(res);
-// int GetSum(int val)
+
+// int[] randomArr = RandomArr(arrLength);
+// PrintArr(randomArr);
+// int countOfEvenNum = EvenNumCount(randomArr);
+// Console.Write($"Колличество положительных чисел - {countOfEvenNum}");
+
+// int EvenNumCount(int[] userArr)
 // {
-//     int newVal = val;
 //     int result = 0;
-//     while (newVal > 0)
+//     for (int i = 0; i < userArr.Length; i++)
 //     {
-//         result += newVal % 10;
-//         newVal = newVal / 10;
+//         if (userArr[i] % 2 == 0)
+//         {
+//             result += 1;
+//         }
 //     }
 //     return result;
 // }
+// int[] RandomArr(int userArrLength)
+// {
+//     Random random = new Random();
+//     int[] result = new int[userArrLength];
+//     int i = 0;
+//     while (i < userArrLength)
+//     {
+//         result[i] = random.Next(100, 1000);
+//         i++;
+//     }
+//     return result;
+// }
+// void PrintArr(int[] arr)
+// {
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         Console.Write($"{arr[i]}, ");
+//     }
+// }
 
-// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
-// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
-// 6, 1, 33 -> [6, 1, 33]
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.
+// [3, 7, 23, 12] -> 19
+// [-4, -6, 89, 6] -> 0
+// bool isParsedVal = int.TryParse(Console.ReadLine(), out int arrLength);
 
-// bool isParsedLength = int.TryParse(Console.ReadLine(), out int lengthOfArr);
-// bool isParsedMin = int.TryParse(Console.ReadLine(), out int min);
-// bool isParsedMax = int.TryParse(Console.ReadLine(), out int max);
-// if (!isParsedLength || !isParsedMin || !isParsedMax)
+// if (!isParsedVal)
 // {
 //     Console.WriteLine("Не число!");
 //     return;
 // }
-// Random random = new Random();
-// int[] res = BuildRandomArr(lengthOfArr, min, max);
 
-// Console.WriteLine(String.Join(", ", res));
+// int[] randomArr = RandomArr(arrLength);
+// PrintArr(randomArr);
+// int evenElementsSum = SumOfEvenElements(randomArr);
+// Console.Write($"Сумма елементов с четными индексами - {evenElementsSum}");
 
-// int[] BuildRandomArr(int length, int min, int max)
+// int[] RandomArr(int userArrLength)
 // {
-//     int[] result = new int[length];
+//     Random random = new Random();
+//     int[] result = new int[userArrLength];
 //     int i = 0;
-//     while (i < length)
+//     while (i < userArrLength)
 //     {
-//         result[i] = random.Next(min, max + 1);
+//         result[i] = random.Next(1, 100);
 //         i++;
 //     }
 //     return result;
+// }
+// int SumOfEvenElements(int[] arr)
+// {
+//     int result = 0;
+//     int i = 0;
+
+//     while (i < arr.Length)
+//     {
+//         if (i % 2 != 0)
+//         {
+//             result += arr[i];
+//         }
+//         i++;
+//     }
+//     return result;
+// }
+// void PrintArr(int[] arr)
+// {
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         Console.Write($"{arr[i]}, ");
+//     }
+// }
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива. Не использовать готовые методы Min и Max
+// [3 7 22 2 78] -> 76
+
+// bool isParsedVal = int.TryParse(Console.ReadLine(), out int arrLength);
+
+// if (!isParsedVal)
+// {
+//     Console.WriteLine("Не число!");
+//     return;
+// }
+
+// int[] randomArr = RandomArr(arrLength);
+// PrintArr(randomArr);
+// int maxMinSum = FindeSumOfMaxMin(randomArr);
+// Console.Write($"Сумма max & min елементов - {maxMinSum}");
+
+// int FindeSumOfMaxMin(int[] arr)
+// {
+//     int min = arr[0];
+//     int max = arr[0];
+//     int i = 0;
+//     if (arr.Length == 0)
+//     {
+//         return 0;
+//     }
+//     while (i < arr.Length)
+//     {
+//         if (arr[i] < min)
+//         {
+//             min = arr[i];
+//         }
+//         if (arr[i] > max)
+//         {
+//             max = arr[i];
+//         }
+//         i++;
+//     }
+//     Console.WriteLine();
+//     Console.WriteLine($"max - {max}");
+//     Console.WriteLine($"min - {min}");
+//     return min + max;
+// }
+// int[] RandomArr(int userArrLength)
+// {
+//     Random random = new Random();
+//     int[] result = new int[userArrLength];
+//     int i = 0;
+//     while (i < userArrLength)
+//     {
+//         result[i] = random.Next(1, 100);
+//         i++;
+//     }
+//     return result;
+// }
+// void PrintArr(int[] arr)
+// {
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         Console.Write($"{arr[i]}, ");
+//     }
+// }
+
+// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+// 0, 7, 8, -2, -2 -> 2
+// 1, -7, 567, 89, 223-> 3
+
+// Console.WriteLine($"Введите числа через пробел");
+// string numbersStr = Console.ReadLine();
+// string[] subs = numbersStr.Split(' ');
+// PrintArr(subs);
+// int positiveNumbers = CountOfPositiveNum(subs);
+// Console.WriteLine($"Колличество положительных чисел - {positiveNumbers}");
+
+// int CountOfPositiveNum(string[] arr)
+// {
+//     if (arr.Length == 0)
+//     {
+//         return 0;
+//     }
+//     int result = 0;
+//     int i = 0;
+//     while (i < arr.Length)
+//     {
+//         bool isParsedVal = int.TryParse(arr[i], out int intValue);
+//         if (isParsedVal & intValue > 0)
+//         {
+//             result += 1;
+//         }
+//         i++;
+//     }
+//     return result;
+// }
+// void PrintArr(string[] arr)
+// {
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         Console.Write($"{arr[i]}, ");
+//     }
+// }
+
+// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+// Console.WriteLine($"Введите значения координат b1, k1, b2 и k2 через пробел");
+// string numbersStr = Console.ReadLine();
+// string[] subs = numbersStr.Split(' ');
+// PrintStrArr(subs);
+// if (subs.Length < 4)
+// {
+//     Console.WriteLine($"Не корректные координаты");
+//     return;
+// }
+// string point = FindePointOfIntersection(subs);
+// Console.WriteLine($"Координыты точки пересечения - {point}");
+
+// string FindePointOfIntersection(string[] arr)
+// {
+//     int[] numArr = new int[arr.Length];
+//     int i = 0;
+//     while (i < 4)
+//     {
+//         bool isParsedVal = int.TryParse(arr[i], out int intValue);
+//         if (isParsedVal)
+//         {
+//             numArr[i] = intValue;
+//         }
+//         i++;
+//     }
+//     double x = (double)(numArr[2] - numArr[0]) / (numArr[1] - numArr[3]);
+//     double y = numArr[3] * x + numArr[2];
+//     return $"({x};{y})";
+// }
+
+// void PrintStrArr(string[] arr)
+// {
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         Console.Write($"{arr[i]}, ");
+//     }
 // }
